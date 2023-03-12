@@ -35,7 +35,7 @@ module.exports = {
     pass: "bonsoirDocker", //- The password of the lavalink server.
     secure: false, // Set this to true if the lavalink uses SSL. if not set it to false.
     retryAmount: 200, //- The amount of times to retry connecting to the node if connection got dropped.
-    retryDelay: 40, //- Delay between reconnect attempts if connection is lost.
+    retryDelay: 1000, //- Millis delay between reconnect attempts if connection is lost.
   },
   // Spotify Integration, allows you to enter a spotify link.
   Spotify: {
