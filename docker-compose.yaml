@@ -3,6 +3,11 @@ version: "3"
 services:
   discord-musicbot:
     build: .
+    environment:
+      - DISCORD_TOKEN=$DISCORD_TOKEN
+      - COOKIE_SECRET=$COOKIE_SECRET
+      - SPOTIFY_CLIENT_ID=$SPOTIFY_CLIENT_ID
+      - SPOTIFY_CLIENT_SECRET=$SPOTIFY_CLIENT_SECRET
     image: discord-musicbot:latest
     container_name: discord-musicbot
     restart: unless-stopped
