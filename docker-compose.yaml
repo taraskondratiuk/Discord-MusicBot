@@ -29,6 +29,8 @@ services:
       - lavalink-net
     volumes:
       - ./docker/application.yml:/opt/Lavalink/application.yml:ro
+    ports:
+      - "2333:2333"
 
 networks:
   lavalink-net:
