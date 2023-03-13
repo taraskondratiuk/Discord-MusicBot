@@ -19,9 +19,7 @@ module.exports = {
   run: async (client, message, args, { GuildDB }) => {
     let Commands = client.commands.map(
       (cmd) =>
-        `\`${GuildDB ? GuildDB.prefix : client.botconfig.DefaultPrefix}${
-          cmd.name
-        }${cmd.usage ? " " + cmd.usage : ""}\` - ${cmd.description}`
+        `\`${[cmd.name, ...cmd.aliases].map(v => `${GuildDB ? GuildDB.prefix : client.botconfig.DefaultPrefix}${v}`).join("/")}${cmd.usage ? " " + cmd.usage : ""}\` - ${cmd.description}`
     );
 
     let Embed = new MessageEmbed()
