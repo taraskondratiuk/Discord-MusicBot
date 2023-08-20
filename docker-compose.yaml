@@ -19,6 +19,12 @@ services:
       - lavalink
     volumes:
       - ./botconfig.js:/usr/src/app/botconfig.js:ro
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "3"
+        tag: "{{.ImageName}}|{{.Name}}|{{.ImageFullID}}|{{.FullID}}"
 
   lavalink:
     image: fredboat/lavalink:3.7.5
@@ -31,6 +37,12 @@ services:
       - ./docker/application.yml:/opt/Lavalink/application.yml:ro
     ports:
       - "2333:2333"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "3"
+        tag: "{{.ImageName}}|{{.Name}}|{{.ImageFullID}}|{{.FullID}}"
 
 networks:
   lavalink-net:
